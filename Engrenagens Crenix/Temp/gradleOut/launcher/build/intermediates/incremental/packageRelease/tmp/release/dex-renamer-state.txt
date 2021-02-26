@@ -1,0 +1,4 @@
+#Thu Feb 25 20:36:55 BRT 2021
+base.0=C\:\\Users\\Machado\\Engrenagens Crenix\\Temp\\gradleOut\\launcher\\build\\intermediates\\transforms\\dexMerger\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex
