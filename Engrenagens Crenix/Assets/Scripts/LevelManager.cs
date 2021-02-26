@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
         gears = FindObjectsOfType<GearDragManager>();
         places = GetComponentsInChildren<GearPlaceManager>();
 
-        ResetGears();
+        Invoke("ResetGears", .1f);
     }
 
     public Vector3 GetSlotPos(Vector3 gearPos)
@@ -55,6 +55,9 @@ public class LevelManager : MonoBehaviour
                 closestIndex = i;
             }
         }
+
+        if (closestPos.Equals(new Vector3(999, 999, 999)))
+            closestPos = gearPos;
 
         ocuppiedSlots[closestIndex] = 1;
 
@@ -139,15 +142,15 @@ public class LevelManager : MonoBehaviour
         {
             //places[i].DeactivateGear(places[i].filledGear);
 
-            if (gears[i].tag != "Nugget")
-            {
+            //if (gears[i].tag != "Nugget")
+            //{
                 gears[i].placed = false;
                 gears[i].beingDraged = false;
                 gears[i].myRenderer.enabled = true;
                 gears[i].targetPos = GetSlotPos(gears[i].transform.position);
-            }
+            //}
 
-            if(i <= places.Length - 1)
+            if(i < places.Length)
                 places[i].UnlockGear();
         }
 
